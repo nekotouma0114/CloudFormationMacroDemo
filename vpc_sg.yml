@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  PjPrefix:
+    Type: String
+    Default: Demo
+  CustomerCidrList:
+    Type: List<String>
+
+Resources:
+  Vpc:
+    Type: AWS::EC2::VPC
+    Properties:
+      #本当はここのパラメータもParametersで入力させてね
+      CidrBlock: 192.168.1.0/24
+      InstanceTenancy: default
+      Tags:
+        - Key: Name
+          Value: !Sub ${PjPrefix}Vpc
+
+  Sg:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: DemoSg
+      GroupDescription: Demo
+      VpcId: !Ref Vpc
+      SecurityGroupIngress:
+        Fn::Transform:
+          Name: DemoMacro
+          Parameters:
+            description: "Demo description"
+            cidr_list: !Ref CustomerCidrList

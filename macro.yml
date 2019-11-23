@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: 2010-09-09
+Parameters:
+  LambdaArn:
+    Type: String
+Resources:
+  SgMacro:
+    Type: "AWS::CloudFormation::Macro"
+    Properties:
+      FunctionName: !Ref LambdaArn
+      Name: DemoMacro

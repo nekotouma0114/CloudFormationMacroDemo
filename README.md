@@ -1,0 +1,2 @@
+# CloudFormationMacroDemo
+Cloudformation::Macro demo

@@ -11,7 +11,9 @@
     ex) 192.168.2.1/32 192.168.2.2/32
 
 詳細はこちらで記事を書きました
+
 【AWS】CloudFormation::Macroを使って多数のIPを接続許可する
+
 https://qiita.com/nekotouma0114/items/ff2e99a3203588ee537e
 
 # 抱えてる問題
